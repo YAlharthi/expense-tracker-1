@@ -10,5 +10,5 @@ A simple expense tracking web app built with vanilla HTML, CSS, and JavaScript.
 
 # Tech Stack
 - HTML
-- CSS
+- CSS TailWind
 - JavaScript (DOM manipulation, array methods)
