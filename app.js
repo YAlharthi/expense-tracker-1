@@ -8,17 +8,23 @@ const renderExpenses = () => {
     
     expenses.forEach((expense, index) => {
         const li = document.createElement('li')
-        li.textContent = expense.name + ' - ' + expense.amount + ' SAR'
-        
-        const deleteBtn = document.createElement('button')
-        deleteBtn.textContent = 'Delete'
-        deleteBtn.addEventListener('click', () => {
-            expenses.splice(index, 1)
-            renderExpenses()
-        })
-        
-        li.appendChild(deleteBtn)
-        list.appendChild(li)
+li.className = 'flex justify-between items-center bg-gray-50 border border-gray-200 rounded-lg px-4 py-3'
+
+const span = document.createElement('span')
+span.textContent = `${expense.name} — ${expense.amount} SAR`
+span.className = 'text-gray-700'
+
+const deleteBtn = document.createElement('button')
+deleteBtn.textContent = 'Delete'
+deleteBtn.className = 'text-red-400 hover:text-red-600 text-sm font-medium'
+deleteBtn.addEventListener('click', () => {
+    expenses.splice(index, 1)
+    renderExpenses()
+})
+
+li.appendChild(span)
+li.appendChild(deleteBtn)
+list.appendChild(li)
     })
     
     const total = expenses.reduce((acc, curr) => acc + Number(curr.amount), 0)
